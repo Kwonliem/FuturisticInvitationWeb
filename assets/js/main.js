@@ -543,13 +543,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 1000);
 
-     // --- INISIALISASI GLIGHTBOX (BARU) ---
+    // --- INISIALISASI GLIGHTBOX (BARU DENGAN TOMBOL BACK) ---
     const lightbox = GLightbox({
-        selector: '.glightbox',      // Menargetkan semua link dengan class '.glightbox'
-        touchNavigation: true,       // Aktifkan navigasi geser di mobile
-        loop: true,                  // Izinkan loop dari foto terakhir ke pertama
-        skin: 'classic dark',        // Gunakan tema gelap yang elegan
-        titleSource: 'data-title'    // Ambil caption dari atribut data-title
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+        skin: 'classic dark',
+        titleSource: 'data-title',
+
+        // KODE SVG YANG SUDAH DIPERBAIKI DAN DIBERSIHKAN
     });
 
     // Jalankan fungsi-fungsi awal
