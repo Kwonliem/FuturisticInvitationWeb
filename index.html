@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Liem & Nita</title>
+
+    <link rel="shortcut icon" href="assets/images/emoji.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+        integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY99L4+BwniBqrkkNlSljiTog=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="antialiased body-no-scroll">
+
+    <canvas id="petal-canvas"></canvas>
+
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-overlay"></div>
+        <div class="splash-content text-center text-white p-6 z-10">
+            <p class="tracking-widest text-slate-300 uppercase text-sm md:text-base">The Wedding Of</p>
+            <h1 class="font-script text-6xl md:text-8xl my-4 text-amber-100">Liem & Nita</h1>
+            <div class="mt-12">
+                <p class="text-slate-200 text-lg mb-2">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h2 id="guest-name" class="text-2xl font-bold text-white mb-8">[Nama Tamu]</h2>
+                <button id="open-invitation-btn" class="btn-gold font-bold py-3 px-8 rounded-lg text-lg">
+                    <i class="far fa-envelope-open mr-2"></i>Buka Undangan
+                </button>
+            </div>
+        </div>
+    </div>
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <div class="flex-shrink-0"><a href="#" class="font-script text-2xl text-amber-100">L & N</a></div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="#couple"
+                            class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Us
+                            <Span>&#128145;</Span></a>
+                        <a href="#our-story"
+                            class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Our
+                            Story <span>&#128107;</span></a>
+                        <a href="#gallery"
+                            class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Moments
+                            <span>&#128247;</span></a>
+                        <a href="#events"
+                            class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Events
+                            <span>&#128198;</span></a>
+                        <a href="#gift"
+                            class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Gift
+                            <span>&#127873;</span></a>
+                        <a href="#rsvp" class="btn-gold px-4 py-2 rounded-md text-sm font-bold">RSVP</a>
+                        <div id="music-player" class="music-player-nav">
+                            <button id="prev-song-btn" class="music-control-btn-nav"><i
+                                    class="fas fa-step-backward"></i></button>
+                            <button id="play-pause-btn" class="music-control-btn-nav play-btn-nav"><i
+                                    class="fas fa-play"></i></button>
+                            <button id="next-song-btn" class="music-control-btn-nav"><i
+                                    class="fas fa-step-forward"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none">
+                        <i id="mobile-menu-icon" class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden transition-all duration-300">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#couple"
+                    class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Us
+                    <Span>&#128145;</Span></a>
+                <a href="#our-story"
+                    class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Our
+                    Story <span>&#128107;</span></a>
+                <a href="#gallery"
+                    class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Moments
+                    <span>&#128247;</span></a>
+                <a href="#events"
+                    class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Events
+                    <span>&#128198;</span></a>
+                <a href="#gift"
+                    class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Gift
+                    <span>&#127873;</span></a>
+                <a href="#rsvp" class="btn-gold block px-3 py-2 rounded-md text-base font-bold text-center">RSVP</a>
+                <div class="flex justify-center items-center pt-4 mt-4 border-t border-slate-700">
+                    <div id="music-player-mobile" class="music-player-nav">
+                        <button id="prev-song-btn-mobile" class="music-control-btn-nav"><i
+                                class="fas fa-step-backward"></i></button>
+                        <button id="play-pause-btn-mobile" class="music-control-btn-nav play-btn-nav"><i
+                                class="fas fa-play"></i></button>
+                        <button id="next-song-btn-mobile" class="music-control-btn-nav"><i
+                                class="fas fa-step-forward"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header id="main-header"
+        class="min-h-screen bg-cover bg-no-repeat flex flex-col items-center justify-center text-white text-center p-6 relative"
+        style="background-image: linear-gradient(rgba(8, 14, 18, 0.7), rgba(8, 14, 18, 0.9)), url('assets/images/bg.jpg');">
+        <div class="reveal">
+            <p class="tracking-widest text-slate-300 uppercase text-sm md:text-base">The Wedding Of</p>
+            <h1 class="font-script text-6xl md:text-8xl lg:text-9xl my-4 text-amber-100">Liem & Nita</h1>
+            <p class="text-lg md:text-xl text-slate-200">06 . 08 . 2026</p>
+            <div id="countdown" class="flex justify-center gap-4 md:gap-8 mt-12 text-lg">
+                <div><span id="days" class="block font-bold text-3xl md:text-4xl">0</span><span
+                        class="text-xs uppercase">Hari</span></div>
+                <div><span id="hours" class="block font-bold text-3xl md:text-4xl">0</span><span
+                        class="text-xs uppercase">Jam</span></div>
+                <div><span id="minutes" class="block font-bold text-3xl md:text-4xl">0</span><span
+                        class="text-xs uppercase">Menit</span></div>
+                <div><span id="seconds" class="block font-bold text-3xl md:text-4xl">0</span><span
+                        class="text-xs uppercase">Detik</span></div>
+            </div>
+        </div>
+        <a href="#invitation" class="absolute bottom-10 animate-bounce-slow text-4xl"><span>&#128071;</span></a>
+    </header>
+    <section id="invitation" class="py-20 px-6 text-center">
+        <div class="max-w-3xl mx-auto reveal">
+            <h2 class="font-script text-5xl mb-6 text-amber-100">Invitation</h2>
+            <p class="text-slate-300 mb-6" style="font-size: 1.25rem; line-height: 2.5rem;">
+                وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ
+                بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةًۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
+            </p>
+            <p class="text-slate-300 mb-6 italic">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu
+                isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan
+                dijadikan-Nya diantaramu rasa kasih dan sayang."</p>
+            <p class="text-slate-400 font-semibold">(QS. Ar-Rum: 21)</p>
+            <p class="mt-8 text-slate-300">Dengan memohon rahmat dan ridho Allah <span>&#65019;</span>, kami bermaksud
+                menyelenggarakan acara pernikahan kami. Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+                Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+        </div>
+    </section>
+
+    <section id="couple" class="py-20 px-6 bg-secondary">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <h2 class="font-script text-5xl mb-12 text-amber-100">The Happy Couple</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-16">
+                <div class="flex flex-col items-center">
+                    <img src="assets/images/holder.jpg" alt="Liem"
+                        class="w-48 h-48 rounded-full object-cover border-4 border-slate-700 mb-4 transition-transform duration-300 hover:scale-110">
+                    <h3 class="font-script text-4xl text-gold-theme">Liem</h3>
+                    <p class="text-slate-300 mt-2">Putra dari Bapak [Nama Ayah] & Ibu [Nama Ibu]</p>
+                </div>
+                <span class="font-script text-5xl text-amber-100">&</span>
+                <div class="flex flex-col items-center">
+                    <img src="assets/images/holder.jpg" alt="Nita"
+                        class="w-48 h-48 rounded-full object-cover border-4 border-slate-700 mb-4 transition-transform duration-300 hover:scale-110">
+                    <h3 class="font-script text-4xl text-gold-theme">Nita</h3>
+                    <p class="text-slate-300 mt-2">Putri dari Bapak [Nama Ayah] & Ibu [Nama Ibu]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-story" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="font-script text-5xl mb-12 text-amber-100">Our Story</h2>
+            <div class="relative">
+                <div class="hidden md:block absolute top-0 h-full w-0.5 bg-slate-700 left-1/2 -translate-x-1/2"></div>
+                <div class="space-y-8 md:space-y-0 md:gap-y-16">
+                    <div class="relative flex flex-col md:grid md:grid-cols-2 md:gap-x-12 items-center reveal">
+                        <div class="md:text-right">
+                            <div class="glass-effect p-6 rounded-lg text-left inline-block">
+                                <p class="text-gold-theme font-semibold">Januari 2020 - Awal Bertemu</p>
+                                <h3 class="text-xl font-bold mt-1">Lorem ipsum dolor sit amet.</h3>
+                                <p class="text-slate-300 mt-2 text-sm">Lorem ipsum dolor sit amet consectetur.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="hidden md:block absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-amber-800 rounded-full border-4 border-slate-900">
+                        </div>
+                        <div class="md:hidden mt-4 mb-4 h-8 w-px bg-slate-700"></div>
+                        <div></div>
+                    </div>
+                    <div class="relative flex flex-col-reverse md:grid md:grid-cols-2 md:gap-x-12 items-center reveal">
+                        <div></div>
+                        <div class="md:hidden mt-4 mb-4 h-8 w-px bg-slate-700"></div>
+                        <div class="md:text-left">
+                            <div class="glass-effect p-6 rounded-lg text-left inline-block">
+                                <p class="text-gold-theme font-semibold">Desember 2023 - Menjalin Hubungan</p>
+                                <h3 class="text-xl font-bold mt-1">Lorem ipsum dolor sit amet.</h3>
+                                <p class="text-slate-300 mt-2 text-sm">Lorem ipsum dolor sit amet consectetur.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="hidden md:block absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-amber-800 rounded-full border-4 border-slate-900">
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col md:grid md:grid-cols-2 md:gap-x-12 items-center reveal">
+                        <div class="md:text-right">
+                            <div class="glass-effect p-6 rounded-lg text-left inline-block">
+                                <p class="text-gold-theme font-semibold">Desember 2024 - Lamaran</p>
+                                <h3 class="text-xl font-bold mt-1">Lorem ipsum dolor sit amet.</h3>
+                                <p class="text-slate-300 mt-2 text-sm">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quasi, aperiam.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="hidden md:block absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-amber-800 rounded-full border-4 border-slate-900">
+                        </div>
+                        <div class="md:hidden mt-4 mb-4 h-8 w-px bg-slate-700"></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto text-center reveal">
+            <h2 class="font-script text-5xl mb-4 text-amber-100">Our Moments</h2>
+            <p class="text-slate-300 mb-12 max-w-2xl mx-auto">Beberapa kepingan momen berharga dalam perjalanan kami
+                yang terekam dalam bingkai.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <a href="assets/images/gallery/1.jpg" data-lightbox="wedding-gallery" data-title="Caption Foto 1">
+                    <img src="assets/images/gallery/1.jpg" alt="Foto Prewedding 1"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+                </a>
+                <a href="assets/images/gallery/2.jpg" data-lightbox="wedding-gallery" data-title="Caption Foto 2">
+                    <img src="assets/images/gallery/2.jpg" alt="Foto Prewedding 2"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+                </a>
+                <a href="assets/images/gallery/3.jpg" data-lightbox="wedding-gallery" data-title="Caption Foto 3">
+                    <img src="assets/images/gallery/3.jpg" alt="Foto Prewedding 3"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+                </a>
+                <a href="assets/images/gallery/4.jpg" data-lightbox="wedding-gallery" data-title="Caption Foto 4">
+                    <img src="assets/images/gallery/4.jpg" alt="Foto Prewedding 4"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-20 px-6 bg-secondary">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <h2 class="font-script text-5xl mb-12 text-amber-100">Wedding Events</h2>
+            <div class="flex flex-col md:flex-row gap-8 justify-center">
+                <div class="glass-effect p-8 flex-1">
+                    <h3 class="font-script text-4xl mb-6 text-gold-theme">Akad Nikah</h3>
+                    <p class="flex items-center justify-center gap-3 mb-3 text-slate-300"><i
+                            class="fa-regular fa-calendar-alt w-4"></i> Senin, 08 June 2026</p>
+                    <p class="flex items-center justify-center gap-3 mb-6 text-slate-300"><i
+                            class="fa-regular fa-clock w-4"></i> 08:00 - 10:00 WIB</p>
+                    <p class="flex items-start justify-center gap-3 text-slate-300"><i
+                            class="fa-solid fa-map-marker-alt w-4 mt-1"></i> [Nama Masjid/Lokasi Akad],<br>[Alamat
+                        Lokasi]</p>
+                    <a href="#" target="_blank"
+                        class="mt-8 inline-block btn-gold font-semibold py-2 px-6 rounded-lg">Lihat Peta</a>
+                </div>
+                <div class="glass-effect p-8 flex-1">
+                    <h3 class="font-script text-4xl mb-6 text-gold-theme">Resepsi</h3>
+                    <p class="flex items-center justify-center gap-3 mb-3 text-slate-300"><i
+                            class="fa-regular fa-calendar-alt w-4"></i> Senin, 08 June 2026</p>
+                    <p class="flex items-center justify-center gap-3 mb-6 text-slate-300"><i
+                            class="fa-regular fa-clock w-4"></i> 11:00 - 14:00 WIB</p>
+                    <p class="flex items-start justify-center gap-3 text-slate-300"><i
+                            class="fa-solid fa-map-marker-alt w-4 mt-1"></i> [Nama Gedung/Lokasi Resepsi],<br>[Alamat
+                        Lokasi]</p>
+                    <a href="#" target="_blank"
+                        class="mt-8 inline-block btn-gold font-semibold py-2 px-6 rounded-lg">Lihat Peta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gift" class="py-20 px-6">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <h2 class="font-script text-5xl mb-4 text-amber-100">Wedding Gift</h2>
+            <p class="text-slate-300 mb-10">Doa restu Anda adalah hadiah terindah bagi kami. Namun, jika Anda ingin
+                memberikan tanda kasih, kami dengan senang hati menerimanya dan itu akan menyempurnakan kebahagiaan
+                kami.</p>
+            <div class="glass-effect p-8 max-w-md mx-auto">
+                <img src="assets/images/Logo BCA_Biru.png" alt="Logo Bank BCA" class="h-8 mx-auto mb-4">
+                <p class="text-slate-400 text-sm">Bank Central Asia (BCA)</p>
+                <p class="text-2xl font-bold tracking-widest my-2" id="account-number">3580779351</p>
+                <p class="text-lg text-slate-300">a.n. Musalim Yusuf</p>
+                <button id="copy-button"
+                    class="mt-6 btn-gold font-semibold py-2 px-6 rounded-lg flex items-center justify-center gap-2 w-full">
+                    <i class="far fa-copy"></i>
+                    <span id="copy-text">Salin Nomor Rekening</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp" class="py-20 px-6 bg-secondary">
+        <div class="max-w-2xl mx-auto reveal">
+            <div class="text-center">
+                <h2 class="font-script text-5xl mb-4 text-amber-100">RSVP & Ucapan</h2>
+                <p class="text-slate-300 mb-8">Mohon konfirmasi kehadiran Anda untuk membantu kami mempersiapkan acara.
+                    E-Ticket dengan QR Code akan dikirimkan ke email Anda.</p>
+            </div>
+            <form id="rsvp-form" class="text-left space-y-4" novalidate>
+                <div><label for="name" class="block text-sm font-medium text-slate-300 mb-1">Nama Lengkap <span
+                            class="text-red-400">*</span></label><input type="text" id="name" name="name"
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 focus:ring-amber-500 focus:border-amber-500 transition"
+                        placeholder="Nama Lengkap Anda" required></div>
+                <div><label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email <span
+                            class="text-red-400">*</span></label><input type="email" id="email" name="email"
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 focus:ring-amber-500 focus:border-amber-500 transition"
+                        placeholder="contoh@email.com" required></div>
+                <div><label for="whatsapp" class="block text-sm font-medium text-slate-300 mb-1">Nomor WhatsApp <span
+                            class="text-red-400">*</span></label><input type="number" id="whatsapp" name="whatsapp"
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 focus:ring-amber-500 focus:border-amber-500 transition"
+                        placeholder="08xxxxxxxxxx" required></div>
+                <div><label for="attendance" class="block text-sm font-medium text-slate-300 mb-1">Konfirmasi Kehadiran
+                        <span class="text-red-400">*</span></label><select id="attendance" name="attendance"
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 focus:ring-amber-500 focus:border-amber-500 transition"
+                        required>
+                        <option value="">-- Pilih Opsi --</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                    </select></div>
+                <div id="guest-count-wrapper" class="hidden"><label for="guest_count"
+                        class="block text-sm font-medium text-slate-300 mb-1">Jumlah Tamu (termasuk Anda) <span
+                            class="text-red-400">*</span></label><select id="guest_count" name="guest_count"
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 focus:ring-amber-500 focus:border-amber-500 transition">
+                        <option value="1">1 orang</option>
+                        <option value="2">2 orang</option>
+                        <option value="3">3 orang</option>
+                        <option value="4">4 orang</option>
+                        <option value="5">5 orang</option>
+                    </select></div>
+                <div><label for="wishes" class="block text-sm font-medium text-slate-300 mb-1">Ucapan &
+                        Doa</label><textarea id="wishes" name="wishes" rows="4"
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 focus:ring-amber-500 focus:border-amber-500 transition"
+                        placeholder="Tuliskan ucapan dan doa terbaik Anda... (Opsional)"></textarea></div>
+                <div><button type="submit" id="submit-button"
+                        class="w-full btn-gold font-bold py-3 px-4 rounded-lg mt-4">Kirim Konfirmasi</button></div>
+            </form>
+        </div>
+    </section>
+
+    <section id="wishes-wall" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="font-script text-5xl mb-4 text-amber-100">Untaian Doa</h2>
+            <p class="text-slate-300 mb-12">Terima kasih atas doa dan ucapan tulus yang telah diberikan. Inilah sebagian
+                kecil darinya.</p>
+            <div id="wishes-container" class="space-y-6 max-h-[600px] overflow-y-auto pr-4 text-left">
+                <div id="wishes-loader" class="text-center py-10">
+                    <i class="fas fa-spinner fa-spin text-3xl text-amber-100"></i>
+                    <p class="mt-2 text-slate-400">Memuat ucapan...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-slate-400">Atas kehadiran dan doa restu yang telah diberikan, kami mengucapkan terima kasih
+                yang tulus.</p>
+            <p class="font-script text-5xl text-amber-100 my-6">Liem & Nita <span>&#128149;</span></p>
+            <p class="text-xs text-slate-500">&copy; 2025 Liem & Nita. All rights reserved. Made With Love
+                <span>&#129392;</span></p>
+        </div>
+    </footer>
+
+    <div id="ad-toast"></div>
+    <div id="toast"></div>
+
+    <div id="qr-modal">
+        <div class="bg-slate-800 p-8 rounded-lg text-center shadow-xl max-w-sm w-full mx-4">
+            <h3 class="font-script text-3xl text-amber-100 mb-2">Konfirmasi Diterima!</h3>
+            <p class="text-slate-300 mb-4">Tunjukkan E-Ticket QR Code ini di meja registrasi. Kami juga telah
+                mengirimkannya ke email Anda.</p>
+            <div id="qrcode-container" class="bg-white p-4 rounded-lg inline-block my-4"></div>
+            <button id="close-modal-btn" class="mt-6 w-full btn-gold font-bold py-2 px-4 rounded-lg">Tutup</button>
+        </div>
+    </div>
+
+    <a id="scrollToTopBtn" class="scroll-to-top-btn">👆</a>
+
+    <audio id="background-music" loop></audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"
+        integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCFAoLbCV/Lf+EbKzUI/4BhrSKwUdKqZRNA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <div id="theme-switcher">
+        <button data-theme-set="bunga" class="theme-button active" title="Tema Bunga">🌸</button>
+        <button data-theme-set="salju" class="theme-button" title="Tema Salju">❄️</button>
+        <button data-theme-set="kemarau" class="theme-button" title="Tema Kemarau">🍂</button>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Check-In QR • Liem & Nita</title>
+    <link rel="shortcut icon" href="assets/images/emoji.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://unpkg.com/html5-qrcode@2.3.7/html5-qrcode.min.js"></script>
+</head>
+
+<body class="antialiased">
+
+    <canvas id="petal-canvas"></canvas>
+
+    <div class="min-h-screen flex flex-col items-center justify-center p-6">
+        <div class="w-full max-w-md bg-glass glass-effect rounded-2xl shadow-2xl overflow-hidden z-10">
+            <div class="bg-secondary px-6 py-4 text-center">
+                <p class="text-sm uppercase tracking-widest text-gold-theme">The Wedding Of</p>
+                <h1 class="font-['Parisienne'] text-5xl text-gold-theme mt-1">Liem & Nita</h1>
+                <p class="text-xs text-secondary mt-1">08 . 06 . 2026</p>
+            </div>
+
+            <div class="p-6">
+                <div id="reader" class="w-full aspect-square bg-black rounded-lg overflow-hidden"></div>
+                <div id="message" class="mt-4 text-center text-base min-h-[1.25rem] text-primary"></div>
+                <button id="restart" class="mt-6 w-full py-3 btn-gold text-base font-semibold rounded-full shadow-lg transform hover:scale-105 transition">
+                    Scan Lagi
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="theme-switcher">
+        <button data-theme-set="bunga" class="theme-button active" title="Tema Bunga">🌸</button>
+        <button data-theme-set="salju" class="theme-button" title="Tema Salju">❄️</button>
+        <button data-theme-set="kemarau" class="theme-button" title="Tema Kemarau">🍂</button>
+    </div>
+
+    <script src="assets/js/scanner.js"></script>
+
+</body>
+</html>
