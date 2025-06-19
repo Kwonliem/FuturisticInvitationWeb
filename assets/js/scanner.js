@@ -60,6 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if(restartBtn) restartBtn.addEventListener('click', initScanner);
+
+    // --- LOGIKA LOGOUT BARU ---
+    const logoutBtn = document.getElementById('logout-btn');
+    if(logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('scannerAuthenticated');
+            window.location.href = 'login-scanner.html';
+        });
+    }
     
 
     // =============================================

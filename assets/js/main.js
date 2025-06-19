@@ -543,14 +543,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 1000);
 
-    // Inisialisasi Lightbox2
-    if (typeof lightbox !== 'undefined') {
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'alwaysShowNavOnTouchDevices': true
-        });
-    }
+     // --- INISIALISASI GLIGHTBOX (BARU) ---
+    const lightbox = GLightbox({
+        selector: '.glightbox',      // Menargetkan semua link dengan class '.glightbox'
+        touchNavigation: true,       // Aktifkan navigasi geser di mobile
+        loop: true,                  // Izinkan loop dari foto terakhir ke pertama
+        skin: 'classic dark',        // Gunakan tema gelap yang elegan
+        titleSource: 'data-title'    // Ambil caption dari atribut data-title
+    });
 
     // Jalankan fungsi-fungsi awal
     initSplashScreen();

@@ -17,6 +17,14 @@
 
 <body class="antialiased">
 
+    <script>
+        if (sessionStorage.getItem('scannerAuthenticated') !== 'true') {
+            // Jika belum login (tidak ada status di sessionStorage),
+            // tendang kembali ke halaman login.
+            window.location.href = 'login-scanner.html';
+        }
+    </script>
+
     <canvas id="petal-canvas"></canvas>
 
     <div class="min-h-screen flex flex-col items-center justify-center p-6">
@@ -33,6 +41,9 @@
                 <button id="restart" class="mt-6 w-full py-3 btn-gold text-base font-semibold rounded-full shadow-lg transform hover:scale-105 transition">
                     Scan Lagi
                 </button>
+                <button id="logout-btn" class="mt-2 w-full text-sm text-slate-400 hover:text-white transition">
+                Logout
+            </button>
             </div>
         </div>
     </div>

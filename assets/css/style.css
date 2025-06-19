@@ -513,3 +513,103 @@ nav.scrolled {
     height: 100% !important;
     object-fit: cover !important;
 }
+
+
+/* Animasi getar untuk feedback login salah */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+/* ================================== */
+/* === STYLE BARU UNTUK GALERI FOTO === */
+/* ================================== */
+
+/* --- Pengaturan Masonry Layout --- */
+.masonry-gallery {
+    /* Kolom untuk layar mobile */
+    column-count: 2;
+    column-gap: 1rem; /* setara dengan 'gap-4' di Tailwind */
+}
+
+/* Kolom untuk layar tablet */
+@media (min-width: 768px) {
+    .masonry-gallery {
+        column-count: 3;
+    }
+}
+
+/* Kolom untuk layar desktop */
+@media (min-width: 1024px) {
+    .masonry-gallery {
+        column-count: 4;
+    }
+}
+
+/* --- Pengaturan Item Galeri --- */
+.gallery-item {
+    margin-bottom: 1rem;
+    /* Mencegah gambar terpotong di antara kolom */
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+}
+
+.gallery-item a {
+    position: relative;
+    display: block;
+    border-radius: 0.5rem; /* rounded-lg */
+    overflow: hidden; /* Penting untuk efek zoom & overlay */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Efek Hover --- */
+.gallery-item a:hover img {
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end; /* Posisikan caption di bawah */
+    padding: 1rem;
+    
+    /* Gradient dari transparan ke gelap untuk membuat teks terbaca */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 60%);
+    
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.gallery-item a:hover .overlay {
+    opacity: 1; /* Munculkan overlay saat hover */
+}
+
+.gallery-item .caption {
+    color: white;
+    font-size: 0.875rem;
+    transform: translateY(20px); /* Mulai dari bawah */
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s; /* Transisi dengan sedikit delay */
+}
+
+.gallery-item a:hover .caption {
+    transform: translateY(0); /* Pindahkan caption ke posisi normal */
+    opacity: 1;
+}

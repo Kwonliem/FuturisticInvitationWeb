@@ -10,16 +10,14 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
-        integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY99L4+BwniBqrkkNlSljiTog=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -230,23 +228,106 @@
             <h2 class="font-script text-5xl mb-4 text-amber-100">Our Moments</h2>
             <p class="text-slate-300 mb-12 max-w-2xl mx-auto">Beberapa kepingan momen berharga dalam perjalanan kami
                 yang terekam dalam bingkai.</p>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <a href="assets/images/gallery/1.jpg" data-lightbox="wedding-gallery" data-title="Caption Foto 1">
-                    <img src="assets/images/gallery/1.jpg" alt="Foto Prewedding 1"
-                        class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                </a>
-                <a href="assets/images/gallery/2.jpg" data-lightbox="wedding-gallery" data-title="Caption Foto 2">
-                    <img src="assets/images/gallery/2.jpg" alt="Foto Prewedding 2"
-                        class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                </a>
-                <a href="assets/images/gallery/3.jpg" data-lightbox="wedding-gallery" data-title="Caption Foto 3">
-                    <img src="assets/images/gallery/3.jpg" alt="Foto Prewedding 3"
-                        class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                </a>
-                <a href="assets/images/gallery/4.jpg" data-lightbox="wedding-gallery" data-title="Caption Foto 4">
-                    <img src="assets/images/gallery/4.jpg" alt="Foto Prewedding 4"
-                        class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                </a>
+            <div class="masonry-gallery">
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/1.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/1.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/2.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/2.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/3.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/3.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/4.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/4.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/4.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/4.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/4.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/4.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/2.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/2.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/6.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/6.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/3.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/3.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/6.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/6.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="assets/images/gallery/5.jpg" class="glightbox" data-title="Picture 1">
+                        <img src="assets/images/gallery/5.jpg" alt="Foto Prewedding 1">
+                        <div class="overlay">
+                            <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis omnis
+                                voluptatum vel eos pariatur quia est aut asperiores ea modi!</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -371,7 +452,8 @@
                 yang tulus.</p>
             <p class="font-script text-5xl text-amber-100 my-6">Liem & Nita <span>&#128149;</span></p>
             <p class="text-xs text-slate-500">&copy; 2025 Liem & Nita. All rights reserved. Made With Love
-                <span>&#129392;</span></p>
+                <span>&#129392;</span>
+            </p>
         </div>
     </footer>
 
@@ -392,12 +474,7 @@
 
     <audio id="background-music" loop></audio>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"
-        integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCFAoLbCV/Lf+EbKzUI/4BhrSKwUdKqZRNA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 
     <script src="assets/js/main.js"></script>
 

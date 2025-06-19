@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Panitia • Liem & Nita</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/emoji.png">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="antialiased">
+
+    <canvas id="petal-canvas"></canvas>
+
+    <div class="min-h-screen flex items-center justify-center p-6">
+        <div class="w-full max-w-sm glass-effect rounded-2xl shadow-2xl overflow-hidden reveal">
+            <div class="bg-secondary px-6 py-8 text-center">
+                <h1 class="font-script text-6xl text-gold-theme">Liem & Nita</h1>
+                <p class="text-secondary tracking-widest text-sm mt-2">AREA KHUSUS PANITIA</p>
+            </div>
+
+            <div class="p-8">
+                <form id="login-form">
+                    <label for="password" class="block text-secondary text-sm mb-2">Kata Sandi</label>
+                    <input type="password" id="password" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-3 text-center focus:ring-amber-500 focus:border-amber-500 transition text-primary">
+                    <p id="error-message" class="text-red-400 text-sm mt-2 min-h-[1.25rem] text-center"></p>
+                    <button type="submit" class="w-full mt-4 btn-gold font-bold py-3 px-4 rounded-lg text-base">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="theme-switcher">
+        <button data-theme-set="bunga" class="theme-button active" title="Tema Bunga">🌸</button>
+        <button data-theme-set="salju" class="theme-button" title="Tema Salju">❄️</button>
+        <button data-theme-set="kemarau" class="theme-button" title="Tema Kemarau">🍂</button>
+    </div>
+
+    <script src="assets/js/login.js"></script>
+
+</body>
+</html>
